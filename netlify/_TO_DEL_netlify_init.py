@@ -34,16 +34,6 @@ def create_deploy(site_id, file_dict:dict):
     print(f'Create deploy - response code: {response.status_code}')
     return response.json()
 
-
-def get_deploy_id(site_id):
-    headers = {
-        'Authorization': f'Bearer {netlify_token}'
-    }
-    
-    response = requests.get(f'{netlify_api_url}/sites/{site_id}/deploys', headers=headers)
-    print(f'Get DeployID - response code {response.status_code}')
-    return response.json()
-
 def upload_files(deploy_id, files):
     failure_flag = False
     files_dir = 'site/'
